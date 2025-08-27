@@ -50,6 +50,9 @@ export default function Home() {
                 type="file"
                 multiple
                 accept=".xls,.xlsx,.csv"
+                className={
+                  files.length !== 0 ? "border-green-400" : "border-red-400"
+                }
               />
             </div>
             <Filter

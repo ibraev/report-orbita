@@ -22,7 +22,7 @@ export default function Filter({
           type="date"
           value={startDate}
           onChange={(e) => setStartDate(e.target.value)}
-          className="border p-2"
+          className={startDate ? "border-green-400" : "border-red-500"}
           placeholder="начало даты"
           required
         />
@@ -33,7 +33,7 @@ export default function Filter({
           type="date"
           value={endDate}
           onChange={(e) => setEndDate(e.target.value)}
-          className="border p-2"
+          className={endDate ? "border-green-400" : "border-red-500"}
           placeholder="конец даты"
           required
         />

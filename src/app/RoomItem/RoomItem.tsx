@@ -74,7 +74,6 @@ export function RoomItem({
           );
         })
       : files;
-  console.log(filteredRows[1].length);
   return (
     <Accordion
       type="single"
@@ -104,9 +103,15 @@ export function RoomItem({
               ))}
             </tbody>
             <tfoot className="px-5 py-10">
-              <h2 className="text-3xl font-bold text-gray-800 p-5">
-                Количество дней: {filteredRows[1].length - 1}
-              </h2>
+              <tr className="text-3xl font-bold text-gray-800 p-5">
+                <td className="px-10 py-5">
+                  {" "}
+                  Количество дней:{" "}
+                  {filteredRows
+                    ? new Set(filteredRows.map((row) => row[3])).size
+                    : 0}
+                </td>
+              </tr>
             </tfoot>
           </table>
         </AccordionContent>
