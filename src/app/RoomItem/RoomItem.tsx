@@ -6,7 +6,8 @@ import {
 } from "@/components/ui/accordion";
 import { useEffect, useState } from "react";
 import { read, utils } from "xlsx";
-import { RowType, formatYMDshort } from "../page";
+import { RowType } from "../page";
+import { formatYMDshort } from "../utils";
 
 export function RoomItem({
   file,

@@ -6,13 +6,6 @@ import { Label } from "@/components/ui/label";
 import { RoomItem } from "./RoomItem/RoomItem";
 import Filter from "./Filter/Filter";
 
-export function formatYMDshort(date: Date) {
-  const year = date.getFullYear().toString().slice(-2);
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-
-  return `${year}-${month}-${day}`;
-}
 export type RowType = [number, string, string, string, number]; // пример: 5 колонок
 
 export default function Home() {
