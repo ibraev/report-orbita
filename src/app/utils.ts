@@ -5,3 +5,19 @@ export function formatYMDshort(date: Date) {
   
     return `${year}-${month}-${day}`;
   }
+
+  function countUniqueDays(rows: (string | number)[][]): number {
+    const dates = new Set<string>();
+  
+    rows.forEach((row, i) => {
+      if (i === 0) return; // пропускаем заголовок
+      const rawDate = row[3];
+      if (!rawDate) return;
+  
+      // нормализуем в YYYY-MM-DD
+      const date = formatYMDshort(new Date(rawDate));
+      dates.add(date);
+    });
+  
+    return dates.size;
+  }

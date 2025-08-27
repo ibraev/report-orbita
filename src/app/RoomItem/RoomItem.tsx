@@ -74,10 +74,7 @@ export function RoomItem({
           );
         })
       : files;
-
-  console.log(filteredRows, "filteredRows");
-  console.log(startDate, endDate, "dates");
-
+  console.log(filteredRows[1].length);
   return (
     <Accordion
       type="single"
@@ -86,9 +83,9 @@ export function RoomItem({
       defaultValue="item-1"
     >
       <AccordionItem value="item-1">
-        <AccordionTrigger>{file.name}</AccordionTrigger>
+        <AccordionTrigger>Дверь {file.name}</AccordionTrigger>
         <AccordionContent className="flex flex-col gap-4 text-balance">
-          <table>
+          <table className="table border">
             <tbody>
               {filteredRows?.map((row, i) => (
                 <tr
@@ -106,6 +103,11 @@ export function RoomItem({
                 </tr>
               ))}
             </tbody>
+            <tfoot className="px-5 py-10">
+              <h2 className="text-3xl font-bold text-gray-800 p-5">
+                Количество дней: {filteredRows[1].length - 1}
+              </h2>
+            </tfoot>
           </table>
         </AccordionContent>
       </AccordionItem>

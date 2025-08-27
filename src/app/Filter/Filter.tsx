@@ -15,7 +15,7 @@ export default function Filter({
   setEndDate: (val: string) => void;
 }) {
   return (
-    <div>
+    <div className="flex flex-row gap-2 mt-3">
       <div className="flex flex-col flex-1 items-start gap-3">
         <Label>Начало</Label>
         <Input
