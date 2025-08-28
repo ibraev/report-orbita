@@ -32,8 +32,9 @@ export function RoomItem({
       const jsonData: (string | number)[][] = utils.sheet_to_json(worksheet, {
         header: 1,
       });
-      const header = jsonData[3]; // сохраняем заголовок
-      const dataRows = jsonData.slice(1); // остальные строки
+      const header = jsonData[4]; // сохраняем заголовок
+      const dataRows = jsonData.slice(3); // остальные строки
+      console.log(dataRows, "dataRows");
       const seen = new Set<string>();
       const defaultFilter = "guest"; // сразу фильтруем по "guest"
 
@@ -56,7 +57,7 @@ export function RoomItem({
         return true;
       });
 
-      const finalData: RowType[] = [header, ...filtered] as RowType[];
+      const finalData: RowType[] = [...filtered] as RowType[];
       setFiles(finalData);
     };
 
@@ -74,6 +75,7 @@ export function RoomItem({
           );
         })
       : files;
+
   return (
     <Accordion
       type="single"
@@ -107,7 +109,7 @@ export function RoomItem({
                 <td className="px-10 py-5">
                   Количество дней:
                   {filteredRows
-                    ? new Set(filteredRows.map((row) => row[3])).size - 2
+                    ? new Set(filteredRows.map((row) => row[3])).size - 1
                     : 0}
                 </td>
               </tr>
