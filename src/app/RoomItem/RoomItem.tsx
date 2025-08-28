@@ -105,10 +105,9 @@ export function RoomItem({
             <tfoot className="px-5 py-10">
               <tr className="text-3xl font-bold text-gray-800 p-5">
                 <td className="px-10 py-5">
-                  {" "}
-                  Количество дней:{" "}
+                  Количество дней:
                   {filteredRows
-                    ? new Set(filteredRows.map((row) => row[3])).size
+                    ? new Set(filteredRows.map((row) => row[3])).size - 2
                     : 0}
                 </td>
               </tr>
